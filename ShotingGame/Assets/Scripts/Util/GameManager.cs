@@ -63,7 +63,6 @@ public class GameManager : Singleton<GameManager>
     public void GameOver()
     {
 
-
         totalScore += enemyScore + stagescore + itemScore;
         isGameOver = true;
 

@@ -36,10 +36,16 @@ public class BossManager : Singleton<BossManager>
     /// </summary>
     public void SpawnBoss()
     {
+        UIController.Instance.ShowBossAnim();
+
+    }
+
+    public void RealBossSpawn()
+    {
         isBossTime = true;
         isMini = false;
-        boss = Instantiate(bosses[stage-1]);
-        UIController.Instance.boss_HPObj.SetActive(true);
+        boss = Instantiate(bosses[stage - 1]);
+        
     }
 
     public void SpawnMiniBoss()

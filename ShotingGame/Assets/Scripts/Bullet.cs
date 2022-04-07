@@ -18,7 +18,6 @@ public class Bullet : MonoBehaviour
     }
     public BulletType mybullet;
 
-    // Start is called before the first frame update
     void Start()
     {
         if (mybullet == BulletType.Player)
@@ -32,7 +31,6 @@ public class Bullet : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (changeVec == Vector3.zero)

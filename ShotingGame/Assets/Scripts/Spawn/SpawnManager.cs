@@ -31,9 +31,6 @@ public class SpawnManager : Singleton<SpawnManager>
     List<Spawn> spawnList = new List<Spawn>();
     public Coroutine spawnEnemyCoroutine;
 
-    void Start()
-    {
-    }
 
     void Update()
     {
@@ -58,7 +55,6 @@ public class SpawnManager : Singleton<SpawnManager>
 
         while (stringReader != null)
         {
-
             string line = stringReader.ReadLine();
 
             if (line == null)

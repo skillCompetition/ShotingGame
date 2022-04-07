@@ -16,6 +16,10 @@ public class UIController : Singleton<UIController>
     public Text painText;
     public Text scoreText;
 
+    [Header("BossShow")]
+    public GameObject bossShowImg;
+    Animator anim;
+
     [Header("Boss")]
     public GameObject boss_HPObj;
     public Image boss_HpImg;
@@ -25,17 +29,39 @@ public class UIController : Singleton<UIController>
     public float miniBossMaxHP;
 
     [Header("Background")]
+    public SpriteRenderer back;
     public SpriteRenderer background;
     public Sprite[] sprites;
 
     [Header("Stop")]
     public GameObject StopPanel;
 
+    public override void Awake()
+    {
+        anim = bossShowImg.GetComponent<Animator>();
+    }
+
+    public void ShowBossAnim()
+    {
+        bossShowImg.SetActive(true);
+        anim.SetTrigger("isboss");
+
+        bossManager.RealBossSpawn();
+
+        Invoke("bossShowImgCheck", 1f);
+    }
+
+    void bossShowImgCheck()
+    {
+        bossShowImg.SetActive(false);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         StopPanel.SetActive(false);
         boss_HPObj.SetActive(false);
+        bossShowImg.SetActive(false);
     }
 
     // Update is called once per frame
@@ -115,6 +141,8 @@ public class UIController : Singleton<UIController>
 
     public void ChangeBackground(int stage)
     {
+        if (stage == 2)
+            back.color = Color.red;
         background.sprite = sprites[stage - 1];
     }
 

@@ -58,7 +58,6 @@ public class StageFlow : Singleton<StageFlow>
         else
         {
 
-            Debug.Log("³¡");
             CheckStageScore();
             stage++;
             StartStage(stage);
@@ -86,8 +85,6 @@ public class StageFlow : Singleton<StageFlow>
 
     void InitStage()
     {
-
-
         GameObject[] NPCes = GameObject.FindGameObjectsWithTag("NPC");
         for (int i = 0; i < NPCes.Length; i++)
         {
